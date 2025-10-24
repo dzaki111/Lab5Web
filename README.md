@@ -1,23 +1,26 @@
 
-# Lab5Web - Laporan Praktikum JavaScript
+# Lab5Web - Praktikum JavaScript
 
-#### Nama = [NAMA LENGKAP ANDA]
-#### Kelas = [KELAS ANDA]
-#### NIM = [NOMOR INDUK MAHASISWA ANDA]
-#### Matkul = Pemograman Web 1
+#### Nama = Dzaki Arif Rahman
+#### Kelas = TI.24.A4
+#### NIM = 312410312
+#### Matkul = Pemograman Web 
 
 -----
 
 ## Belajar Memprogram Web dengan JavaScript
 
-[cite\_start]Pada Praktikum 5 ini, saya mempelajari **JavaScript (nama resminya adalah ECMAScript [cite: 12][cite\_start])** yang berperan memprogram perilaku halaman web[cite: 14]. [cite\_start]Kode JavaScript disisipkan di antara tag `<script>` dan dapat diletakkan di `<head>`, `<body>`, atau pada file eksternal[cite: 21, 22]. [cite\_start]Saya mempelajari bagaimana JavaScript dapat mengubah konten HTML, atribut, gaya (CSS), serta menyembunyikan atau menampilkan elemen[cite: 15, 17, 18, 19].
+Pada Praktikum 5 ini, saya mempelajari **JavaScript (nama resminya adalah ECMAScript** yang berperan memprogram perilaku halaman web. Kode JavaScript disisipkan di antara tag `<script>` dan dapat diletakkan di `<head>`, `<body>`, atau pada file eksternal.Saya mempelajari bagaimana JavaScript dapat mengubah konten HTML, atribut, gaya (CSS), serta menyembunyikan atau menampilkan elemen
 
 ### Persiapan Dokumen HTML (`lab5_javascript.html`)
 
-Saya memulai dengan kerangka HTML dasar. [cite\_start]Di sini, saya mempraktikkan dua metode output data paling umum: **`document.write()`**, yang menulis langsung ke output HTML [cite: 45][cite\_start], dan **`console.log()`**, yang menulis ke konsol *browser* dan sangat berguna untuk *debugging*[cite: 47].
+## 1. Persiapan Dokumen HTML dan Metode Output
 
-#### Kode:
+### Deskripsi
+Bagian ini bertujuan untuk memahami cara kerja dasar JavaScript dalam menampilkan data.  
+JavaScript dapat menulis output ke beberapa tempat, di antaranya langsung ke halaman HTML, ke konsol browser, ke elemen HTML tertentu, atau melalui popup pesan.
 
+### Kode Program
 ```html
 <!DOCTYPE html>
 <html lang="en">
@@ -33,147 +36,206 @@ Saya memulai dengan kerangka HTML dasar. [cite\_start]Di sini, saya mempraktikka
     </script>
 </body>
 </html>
-```
+````
 
-#### Screenshot:
+### Penjelasan
 
-*[Sertakan screenshot kode `lab5_javascript.html` dan hasil output "Hello World" di browser beserta Console-nya (Gambar 5.1)]*
+1. **`document.write()`** digunakan untuk menulis teks langsung ke halaman web.
+   Metode ini cocok untuk pembelajaran dasar, namun tidak disarankan digunakan setelah halaman selesai dimuat karena dapat mengganti seluruh isi dokumen.
+2. **`console.log()`** digunakan untuk menampilkan teks di konsol browser.
+   Biasanya digunakan untuk debugging karena tidak mengubah tampilan halaman.
+3. Kode JavaScript dapat diletakkan di dalam tag `<script>` baik di dalam `<head>` maupun `<body>`.
 
------
+### Screenshot
 
-### Javascrip Dasar: Interaksi, Method, dan Fungsi
+![Screenshot](img/ss1.png)
 
-Saya mempraktikkan interaksi langsung dengan pengguna dan cara menggunakan *method* dalam objek. [cite\_start]Secara total, ada empat cara utama JavaScript menampilkan data, dan saya mencoba tiga di antaranya: `document.write()`, `window.alert()`, dan `console.log()`[cite: 43].
+---
 
-1.  [cite\_start]**Pemakaian Alert dan Method Objek**: Saya menggunakan **`window.alert()`** sebagai *property* dari objek `window` untuk menampilkan kotak peringatan yang bersifat *blocking*[cite: 93]. [cite\_start]Kemudian, saya menggunakan *method* **`document.write()`** untuk mencetak beberapa baris teks di dalam `<body>`[cite: 115, 116].
-2.  [cite\_start]**Pemakaian Prompt**: Fungsi **`prompt()`** digunakan untuk meminta masukan data dari pengguna[cite: 124]. [cite\_start]Nilai yang dimasukkan pengguna disimpan ke variabel (`nama`) dan ditampilkan kembali dengan `document.write()`[cite: 132].
-3.  [cite\_start]**Pembuatan Fungsi**: Saya mendefinisikan fungsi **`pesan()`** di bagian `<head>` dan memanggilnya secara otomatis menggunakan *event handler* **`onload=pesan()`** pada tag `<body>`[cite: 144, 148]. Ini memastikan fungsi dieksekusi setelah seluruh elemen halaman dimuat.
+## 2. JavaScript Dasar: Interaksi, Method, dan Fungsi
 
-#### Kode Dasar dan Fungsi:
+### Deskripsi
+
+Bagian ini menjelaskan penggunaan method bawaan JavaScript seperti `alert()`, `prompt()`, dan implementasi fungsi yang dijalankan melalui event `onload`.
+
+### Kode Program
 
 ```html
 <script>
-    window.alert("ini merupakan pesan untuk anda");
-    var nama = prompt("siapa nama anda?", "masukkan nama anda");
-    document.write("hai, " + nama);
+    window.alert("Ini merupakan pesan untuk anda");
+    var nama = prompt("Siapa nama anda?", "Masukkan nama anda");
+    document.write("Hai, " + nama);
 </script>
 
 <head>
 <script>
 function pesan(){
-    alert ("memanggil javascript lewat body onload")
+    alert("Memanggil JavaScript lewat body onload");
 }
 </script>
 </head>
-<body onload=pesan()>
+<body onload="pesan()">
+<!-- Konten lainnya -->
+</body>
 ```
 
-#### Screenshot Hasil Dasar dan Fungsi:
+### Penjelasan
 
-*[Sertakan screenshot kotak alert, hasil document.write, kotak prompt, dan output fungsi onload]*
+1. **`window.alert()`** digunakan untuk menampilkan kotak pesan sederhana ke pengguna.
+   Sifatnya *blocking*, artinya pengguna harus menekan “OK” sebelum dapat melanjutkan interaksi dengan halaman.
+2. **`prompt()`** digunakan untuk meminta input teks dari pengguna. Nilai yang dimasukkan pengguna disimpan dalam variabel.
+3. **`document.write()`** menampilkan hasil input ke halaman.
+4. **`function pesan()`** didefinisikan di bagian `<head>` dan dipanggil secara otomatis ketika halaman selesai dimuat menggunakan atribut `onload="pesan()"`.
+   Ini menunjukkan konsep **event handler**, di mana JavaScript merespons kejadian tertentu pada halaman.
 
------
+### Screenshot
 
-### Dasar Pemrograman Di Javascript: Logika Kontrol
+![Screenshot](img/ss2.png)
 
-Saya fokus pada logika kontrol yang merupakan inti dari pemrograman.
+---
 
-1.  [cite\_start]**Operasi Dasar Aritmatika**: Saya mendefinisikan fungsi `test(val1, val2)` yang menerima dua nilai dan melakukan semua operasi aritmatika dasar: perkalian, pembagian, penjumlahan, pengurangan, dan **modulus**[cite: 164, 177]. Fungsi ini dipanggil melalui tombol menggunakan *event* `onclick`.
-2.  [cite\_start]**Seleksi Kondisi (`if..else`)**: Saya menggunakan `prompt` untuk mengambil nilai, lalu menggunakan struktur `if (nilai >= 60)` untuk menentukan apakah hasilnya "lulus" atau "tidak lulus"[cite: 193, 195].
-3.  **Penggunaan Operator `switch`**: Saya mempraktikkan `switch` sebagai cara yang lebih efisien untuk menangani seleksi dari banyak nilai. [cite\_start]Program mencocokkan input dengan serangkaian `case` dan menggunakan `break` untuk menghentikan eksekusi, serta `default` untuk kondisi di luar yang ditentukan[cite: 207].
+## 3. Dasar Pemrograman: Logika dan Operasi
 
-#### Kode Logika Kontrol:
+### Deskripsi
+
+Materi ini membahas operasi aritmatika, struktur kontrol `if..else`, dan `switch`.
+Ketiganya merupakan bagian penting dalam membuat logika program di JavaScript.
+
+### Kode Program 1 – Operasi Aritmatika
 
 ```javascript
-// Operasi Aritmatika
-function test (val1, val2) {
-    document.write("perkalian: " + (val1*val2) + "<br>");
-    document.write("modulus: " + (val1%val2) + "<br>");
-    // ... operasi lainnya
+function test(val1, val2) {
+    document.write("Perkalian: " + (val1 * val2) + "<br>");
+    document.write("Modulus: " + (val1 % val2) + "<br>");
 }
-
-// Seleksi if..else
-if (nilai >= 60)
-    hasil = "lulus";
-else
-    hasil = "tidak lulus";
 ```
 
-#### Screenshot Hasil Logika:
-
-*[Sertakan screenshot hasil operator aritmatika, hasil seleksi kondisi if..else, dan hasil operator switch]*
-
------
-
-### Pembuatan Form dan Manipulasi Objek `document`
-
-Saya membuat form interaktif dan belajar memanipulasi properti dari objek **`document`**.
-
-1.  [cite\_start]**Form Input (Cek Ganjil/Genap)**: Saya menggunakan `document.kirim.T1.value` untuk mengambil nilai dari *input field*[cite: 219]. [cite\_start]Logika pengecekan Genap/Ganjil ditentukan oleh **operator modulus (`val1%2==0`)**[cite: 219].
-2.  [cite\_start]**Form Button (Objek `document`)**: Saya mendefinisikan fungsi yang mengubah warna latar belakang halaman menggunakan properti **`document.bgColor`** [cite: 246] [cite\_start]dan warna teks menggunakan **`document.fgColor`**[cite: 250]. [cite\_start]Selain itu, saya juga menampilkan informasi kapan dokumen terakhir kali dimodifikasi menggunakan **`document.lastModified`**[cite: 266].
-
-#### Kode Form Input dan Button:
+### Kode Program 2 – Struktur Kondisi
 
 ```javascript
-// Form Input (Ganjil/Genap)
-function test () {
-    var val1 = document.kirim.T1.value
-    if (val1%2==0)
-        document.kirim.T2.value="bilangan genap"
+var nilai = 85;
+if (nilai >= 60) {
+    hasil = "Lulus";
+} else {
+    hasil = "Tidak Lulus";
+}
+document.write("Status: " + hasil);
+```
+
+### Kode Program 3 – Struktur Switch
+
+```javascript
+var grade = "B";
+switch (grade) {
+    case "A": document.write("Sangat Baik"); break;
+    case "B": document.write("Baik"); break;
+    case "C": document.write("Cukup"); break;
+    default: document.write("Tidak Diketahui");
+}
+```
+
+### Penjelasan
+
+1. **Operator aritmatika** seperti `+`, `-`, `*`, `/`, `%` digunakan untuk melakukan perhitungan matematis.
+   Operator `%` (modulus) mengembalikan sisa hasil bagi, sering digunakan untuk menentukan bilangan ganjil atau genap.
+2. **Struktur `if..else`** memungkinkan pengambilan keputusan berdasarkan kondisi tertentu.
+3. **`switch`** digunakan untuk menggantikan banyak `if..else` ketika ada banyak nilai yang harus dibandingkan.
+   Setiap `case` diakhiri dengan `break` untuk menghentikan eksekusi.
+
+### Screenshot
+
+![Screenshot](img/ss3.png)
+
+---
+
+## 4. Form dan Manipulasi Objek Document
+
+### Deskripsi
+
+Bagian ini menjelaskan cara mengakses elemen HTML melalui objek `document`, memproses input form, serta memodifikasi tampilan halaman.
+
+### Kode Program 1 – Cek Ganjil atau Genap
+
+```javascript
+function test() {
+    var val1 = document.kirim.T1.value;
+    if (val1 % 2 == 0)
+        document.kirim.T2.value = "Bilangan Genap";
     else
-        document.kirim.T2.value="bilangan ganjil"
+        document.kirim.T2.value = "Bilangan Ganjil";
 }
-
-// Form Button (Objek document)
-function ubahwarnaLB (warna) {
-    document.bgColor = warna;
-}
-document.write("Dimodifikasi terakhir pada " + document.lastModified);
 ```
 
-#### Screenshot Hasil Form:
+### Kode Program 2 – Manipulasi Warna Halaman
 
-*[Sertakan screenshot form Ganjil/Genap yang berfungsi dan screenshot halaman dengan warna latar/teks yang sudah diubah]*
+```javascript
+function ubahWarna() {
+    document.bgColor = "lightblue";
+    document.fgColor = "darkblue";
+    document.write("Terakhir diubah: " + document.lastModified);
+}
+```
 
------
+### Penjelasan
 
-### HTML DOM: CheckBox Perhitungan Otomatis
+1. Objek `document` merepresentasikan seluruh halaman HTML yang sedang aktif.
+2. **`document.kirim.T1.value`** mengambil nilai dari elemen input dengan nama `T1` dalam form bernama `kirim`.
+3. Logika `if (val1 % 2 == 0)` digunakan untuk menentukan apakah bilangan yang dimasukkan adalah genap atau ganjil.
+4. **`bgColor`** dan **`fgColor`** digunakan untuk mengubah warna latar dan teks halaman.
+5. **`document.lastModified`** menampilkan informasi waktu terakhir file HTML tersebut diubah.
 
-[cite\_start]Bagian ini berfokus pada **HTML DOM (Document Object Model)**, di mana saya memprogram perilaku *checkbox* untuk menghitung total secara otomatis[cite: 275]. Fungsi **`hitung(ele)`** dipanggil saat *checkbox* diubah. Fungsi ini:
+### Screenshot
 
-1.  Mengambil nilai total yang ada menggunakan `document.getElementById('total').value`.
-2.  [cite\_start]Mengecek status **`ele.checked`** (apakah dicentang)[cite: 275].
-3.  Melakukan penjumlahan atau pengurangan nilai harga dari total, memastikan total diperbarui secara *real-time*.
+![Screenshot](img/ss4.png)
 
-#### Kode Perhitungan Otomatis:
+---
+
+## 5. HTML DOM: CheckBox dengan Perhitungan Otomatis
+
+### Deskripsi
+
+Bagian ini memperkenalkan penggunaan **HTML DOM (Document Object Model)** untuk memanipulasi elemen halaman secara dinamis.
+Contohnya digunakan pada perhitungan otomatis menggunakan checkbox.
+
+### Kode Program
 
 ```javascript
 function hitung(ele) {
     var total = document.getElementById('total').value;
-    total = (total ? parseInt(total) : 0); 
+    total = (total ? parseInt(total) : 0);
     var harga = ele.value;
 
-    if (ele.checked) {
-        total = total + parseInt(harga);
-    } else {
-        total = total - parseInt(harga);
-    }
+    if (ele.checked)
+        total += parseInt(harga);
+    else
+        total -= parseInt(harga);
 
     document.getElementById('total').value = total;
 }
 ```
 
-#### Screenshot Hasil DOM:
+### Penjelasan
 
-*[Sertakan screenshot tampilan daftar menu dengan hasil total bayar yang berubah otomatis]*
+1. **`getElementById()`** digunakan untuk mengambil elemen HTML berdasarkan nilai atribut `id`.
+2. Nilai yang diambil dari elemen input bertipe checkbox dikonversi ke angka menggunakan **`parseInt()`**.
+3. Jika checkbox dicentang (`ele.checked == true`), nilainya ditambahkan ke total.
+   Jika tidak, nilainya dikurangi.
+4. Nilai akhir ditampilkan pada elemen input lain dengan `id="total"`.
+   Proses ini berjalan otomatis setiap kali pengguna mencentang atau menghapus tanda centang pada checkbox.
 
------
+### Screenshot
 
-### Pertanyaan dan Tugas: Validasi Form
+![Screenshot](img/ss5.png)
 
-Sebagai tugas akhir, saya membuat **script validasi form** untuk memastikan *field* wajib (misalnya Nama dan Email) tidak kosong. Fungsi **`validasi()`** dipanggil oleh *event* `onsubmit`. Jika validasi gagal, fungsi menampilkan `alert()`, mengarahkan kursor ke *field* yang salah (`.focus()`), dan mengembalikan nilai **`false`** untuk menghentikan pengiriman data form.
+---
 
-#### Kode Validasi:
+## 6. Validasi Form
+
+### Deskripsi
+
+Materi ini menjelaskan cara membuat validasi sederhana pada form untuk memastikan data yang dikirim telah diisi dengan benar.
+
+### Kode Program
 
 ```javascript
 function validasi() {
@@ -181,28 +243,30 @@ function validasi() {
     
     if (nama == "") {
         alert("Nama harus diisi!");
-        document.myForm.nama.focus(); 
-        return false; // Menghentikan pengiriman form
+        document.myForm.nama.focus();
+        return false;
     }
-    
-    // ... logika validasi field lain (misal: email)
-    
+
     alert("Validasi Berhasil! Data siap diproses.");
-    return true; 
+    return true;
 }
 ```
 
-#### Screenshot Hasil Validasi Form:
+### Penjelasan
 
-*[Sertakan screenshot kotak alert yang muncul ketika pengguna mencoba submit form dalam keadaan kosong]*
+1. Fungsi **`validasi()`** digunakan untuk memeriksa apakah field tertentu sudah diisi sebelum form dikirim ke server.
+2. Jika `nama` kosong, maka akan muncul peringatan `alert()`, dan fokus dikembalikan ke kolom input dengan **`.focus()`**.
+3. `return false` digunakan untuk mencegah pengiriman form jika validasi gagal.
+4. Validasi dijalankan ketika form dikirim menggunakan atribut **`onsubmit="return validasi()"`** pada tag `<form>`.
 
------
+### Screenshot
 
-### Kesimpulan dan Repository
+![Screenshot](img/ss6.png)
 
-Semua langkah praktikum, dari sintaks dasar, logika kontrol, hingga manipulasi HTML DOM (perhitungan otomatis dan validasi form), telah saya pelajari dan implementasikan. Dengan ini, saya memahami bahwa Javascript adalah kunci untuk menciptakan interaksi dan mengontrol perilaku halaman web. Seluruh pekerjaan ini telah di-*commit* ke *repository* di bawah ini.
+---
 
-**URL Repository:** [Masukkan URL GitHub Repository Anda di sini]
+## Kesimpulan
 
-```
-```
+JavaScript merupakan bahasa pemrograman utama yang berfungsi untuk mengendalikan perilaku halaman web.
+Dari praktikum ini diperoleh pemahaman dasar mengenai:
+
