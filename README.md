@@ -7,6 +7,9 @@
 #### Matkul = Pemograman Web 
 
 -----
+# Tugas
+
+<img width="954" height="335" alt="image" src="https://github.com/user-attachments/assets/399d0168-5f41-4719-8ff4-8191ed5590f1" />
 
 ## Belajar Memprogram Web dengan JavaScript
 
@@ -48,7 +51,8 @@ JavaScript dapat menulis output ke beberapa tempat, di antaranya langsung ke hal
 
 ### Screenshot
 
-![Screenshot](img/ss1.png)
+<img width="1581" height="823" alt="image" src="https://github.com/user-attachments/assets/cb57bf6b-9d56-4faf-9d89-180dea21d53f" />
+
 
 ---
 
@@ -56,41 +60,78 @@ JavaScript dapat menulis output ke beberapa tempat, di antaranya langsung ke hal
 
 ### Deskripsi
 
-Bagian ini menjelaskan penggunaan method bawaan JavaScript seperti `alert()`, `prompt()`, dan implementasi fungsi yang dijalankan melalui event `onload`.
+Bagian ini menjelaskan penggunaan **method bawaan JavaScript** untuk berinteraksi dengan pengguna secara langsung, yaitu `alert()` dan `prompt()`, serta implementasi **fungsi** yang dipicu oleh *event* **`onload`**.
+
 
 ### Kode Program
 
 ```html
-<script>
-    window.alert("Ini merupakan pesan untuk anda");
-    var nama = prompt("Siapa nama anda?", "Masukkan nama anda");
-    document.write("Hai, " + nama);
-</script>
-
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<script>
-function pesan(){
-    alert("Memanggil JavaScript lewat body onload");
-}
-</script>
+    <title>Interaksi JavaScript</title>
+    <script>
+        function pesan(){
+            // Alert 1: Dipanggil saat body selesai dimuat
+            alert("Memanggil JavaScript lewat body onload");
+        }
+    </script>
 </head>
+
 <body onload="pesan()">
-<!-- Konten lainnya -->
+    <h2>Interaksi JavaScript</h2>
+    <script>
+        // Alert 2: Dijalankan langsung saat script di body di-parse
+        window.alert("Ini merupakan pesan untuk anda");
+        
+        // Prompt: Meminta input dari user
+        var nama = prompt("Siapa nama anda?", "Masukkan nama anda");
+
+        // Cek jika pengguna menekan Cancel (null) atau tidak mengisi apa pun ("")
+        if (nama == null || nama.trim() === "") {
+            // document.write menimpa seluruh konten halaman setelah loading
+            document.write("Hai, Pengunjung tanpa nama!");
+        } else {
+            // document.write menimpa seluruh konten halaman setelah loading
+            document.write("Hai, " + nama);
+        }
+    </script>
 </body>
+</html>
 ```
+
+-----
 
 ### Penjelasan
 
-1. **`window.alert()`** digunakan untuk menampilkan kotak pesan sederhana ke pengguna.
-   Sifatnya *blocking*, artinya pengguna harus menekan “OK” sebelum dapat melanjutkan interaksi dengan halaman.
-2. **`prompt()`** digunakan untuk meminta input teks dari pengguna. Nilai yang dimasukkan pengguna disimpan dalam variabel.
-3. **`document.write()`** menampilkan hasil input ke halaman.
-4. **`function pesan()`** didefinisikan di bagian `<head>` dan dipanggil secara otomatis ketika halaman selesai dimuat menggunakan atribut `onload="pesan()"`.
-   Ini menunjukkan konsep **event handler**, di mana JavaScript merespons kejadian tertentu pada halaman.
+Program ini mengeksekusi tiga interaksi *pop-up* secara berurutan dan kemudian menampilkan hasil akhirnya di layar:
+
+1.  **Fungsi `pesan()` dan *Event* `onload`:**
+
+      * Fungsi `pesan()` didefinisikan di bagian `<head>` (Baris 6-8).
+      * Fungsinya dipanggil otomatis segera setelah semua konten `<body>` selesai dimuat (sebuah *event* bernama **`load`**) melalui atribut **`onload="pesan()"`** pada tag `<body>` (Baris 12).
+      * Interaksi pertama yang muncul adalah **Alert** dengan pesan: `"Memanggil JavaScript lewat body onload"`.
+
+2.  **Dua *Pop-up* di *Body***
+
+      * Setelah *Alert* pertama ditutup, skrip di dalam `<body>` akan dieksekusi secara berurutan.
+      * **`window.alert()`** (Baris 15) akan menampilkan *Alert* kedua.
+      * **`prompt()`** (Baris 16) akan muncul setelah *Alert* kedua ditutup, berfungsi sebagai **kotak *input* pop-up** tempat pengguna dapat mengetik nama.
+
+3.  **Logika Kondisional dan Penulisan Output:**
+
+      * Program menggunakan kondisi **`if (nama == null || nama.trim() === "")`** untuk mengecek hasil dari `prompt()`:
+          * Jika pengguna menekan **Cancel**, `prompt()` mengembalikan nilai **`null`**.
+          * Jika pengguna meninggalkan *input* kosong, nilai `nama` adalah `""`.
+      * Jika kondisi ini terpenuhi (`null` atau kosong), program menampilkan pesan *default* **"Hai, Pengunjung tanpa nama\!"**.
+      * **Penting:** Penggunaan **`document.write()`** (Baris 20/23) di sini akan **menghapus semua konten HTML** yang sudah dimuat (termasuk judul `<h2>` dan hasil *Alert*) dan menggantinya dengan teks hasil, karena fungsi ini dieksekusi setelah halaman selesai di-*parse*.
+
+-----
 
 ### Screenshot
 
-![Screenshot](img/ss2.png)
+<img width="1567" height="881" alt="Screenshot 2025-10-24 225254" src="https://github.com/user-attachments/assets/7ac38dae-a5b2-4a80-8a94-09a4239afa94" />
+
 
 ---
 
@@ -144,7 +185,8 @@ switch (grade) {
 
 ### Screenshot
 
-![Screenshot](img/ss3.png)
+<img width="1535" height="934" alt="image" src="https://github.com/user-attachments/assets/d0a8466d-1786-4587-a26e-ab9f3ca7dfac" />
+
 
 ---
 
@@ -186,7 +228,8 @@ function ubahWarna() {
 
 ### Screenshot
 
-![Screenshot](img/ss4.png)
+<img width="1381" height="874" alt="image" src="https://github.com/user-attachments/assets/3a41b838-6730-4204-9f84-30931c475a71" />
+
 
 ---
 
@@ -225,48 +268,111 @@ function hitung(ele) {
 
 ### Screenshot
 
-![Screenshot](img/ss5.png)
+<img width="1429" height="817" alt="image" src="https://github.com/user-attachments/assets/35700ae8-6845-4f3b-b71d-ffe918b5da39" />
+
 
 ---
 
-## 6. Validasi Form
+# Tugas Validasi Form
 
 ### Deskripsi
 
-Materi ini menjelaskan cara membuat validasi sederhana pada form untuk memastikan data yang dikirim telah diisi dengan benar.
+Bagian ini menjelaskan cara menggunakan JavaScript untuk melakukan **validasi formulir sisi klien (client-side validation)**. Tujuannya adalah untuk mencegah formulir dikirimkan jika bidang penting (wajib diisi) kosong.
+
+saya akan menggunakan *event handler* **`onsubmit`** pada elemen `<form>` dan fungsi JavaScript untuk memeriksa nilai *input*.
+
+-----
 
 ### Kode Program
 
-```javascript
-function validasi() {
-    var nama = document.myForm.nama.value;
-    
-    if (nama == "") {
-        alert("Nama harus diisi!");
-        document.myForm.nama.focus();
-        return false;
-    }
+Dalam contoh ini, kita membuat formulir sederhana dengan satu bidang *input* wajib.
 
-    alert("Validasi Berhasil! Data siap diproses.");
-    return true;
-}
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Validasi Formulir</title>
+    <style>
+        .error { color: red; }
+    </style>
+    <script>
+        function validasiForm() {
+            // 1. Ambil nilai dari elemen input
+            var nama = document.getElementById("namaInput").value;
+            var pesanError = document.getElementById("errorPesan");
+
+            // 2. Cek apakah bidang nama kosong
+            if (nama.trim() === "") {
+                // Tampilkan pesan error
+                pesanError.innerHTML = "Nama harus diisi!";
+                
+                // Kembalikan false untuk MENCEGAH formulir dikirim
+                return false; 
+            } else {
+                // Hapus pesan error jika valid
+                pesanError.innerHTML = "";
+                
+                // Kembalikan true untuk MENGIZINKAN formulir dikirim
+                alert("Formulir berhasil divalidasi dan akan dikirim!");
+                return true;
+            }
+        }
+    </script>
+</head>
+<body>
+    <h2>Formulir Validasi</h2>
+    
+    <form onsubmit="return validasiForm()" action="/submit-data" method="post">
+        
+        <label for="namaInput">Nama Wajib Diisi:</label>
+        <input type="text" id="namaInput" name="nama_user">
+        
+        <p id="errorPesan" class="error"></p>
+        
+        <button type="submit">Kirim Formulir</button>
+    </form>
+</body>
+</html>
 ```
+
+-----
 
 ### Penjelasan
 
-1. Fungsi **`validasi()`** digunakan untuk memeriksa apakah field tertentu sudah diisi sebelum form dikirim ke server.
-2. Jika `nama` kosong, maka akan muncul peringatan `alert()`, dan fokus dikembalikan ke kolom input dengan **`.focus()`**.
-3. `return false` digunakan untuk mencegah pengiriman form jika validasi gagal.
-4. Validasi dijalankan ketika form dikirim menggunakan atribut **`onsubmit="return validasi()"`** pada tag `<form>`.
+1.  ***Event Handler* `onsubmit`:**
+
+      * Atribut **`onsubmit="return validasiForm()"`** diletakkan pada tag `<form>`. Ini berarti bahwa setiap kali tombol *submit* diklik, fungsi **`validasiForm()`** akan dijalankan *sebelum* formulir benar-benar dikirim ke server.
+      * Nilai *return* (yaitu `true` atau `false`) dari fungsi `validasiForm()` menentukan tindakan selanjutnya:
+          * Jika mengembalikan **`false`**, proses pengiriman formulir akan **dibatalkan**.
+          * Jika mengembalikan **`true`**, proses pengiriman formulir akan **dilanjutkan**.
+
+2.  **Mengambil Nilai *Input***:
+
+      * Di dalam fungsi `validasiForm()`, kita menggunakan **`document.getElementById("namaInput").value`** untuk mendapatkan teks yang diketik pengguna di dalam kotak *input*.
+
+3.  **Validasi (*Trim* dan Cek Kosong):**
+
+      * Kondisi **`if (nama.trim() === "")`** adalah inti dari validasi.
+          * Metode **`.trim()`** digunakan untuk menghapus spasi kosong di awal atau akhir teks.
+          * Jika setelah spasi dihapus, nilai *input* sama dengan string kosong (`""`), maka bidang dianggap **kosong** dan tidak valid.
+
+4.  **Menampilkan Pesan *Error*:**
+
+      * Jika validasi gagal (bidang kosong), kita menggunakan **`document.getElementById("errorPesan").innerHTML = "..."`** untuk menyisipkan teks kesalahan di bawah *input* tanpa menimpa seluruh halaman.
+
+5.  **Mengontrol Pengiriman Formulir:**
+
+      * Jika validasi **gagal**, fungsi mengembalikan **`return false;`** (Baris 20), yang menghentikan pengiriman formulir.
+      * Jika validasi **berhasil**, fungsi mengembalikan **`return true;`** (Baris 25), yang memungkinkan formulir dikirim (disertai *alert* pemberitahuan).
+
+-----
 
 ### Screenshot
+<img width="1449" height="830" alt="image" src="https://github.com/user-attachments/assets/5303eeca-1dc1-4b3c-a881-6ff16422c56a" />
 
-![Screenshot](img/ss6.png)
 
----
-
+----
 ## Kesimpulan
 
-JavaScript merupakan bahasa pemrograman utama yang berfungsi untuk mengendalikan perilaku halaman web.
-Dari praktikum ini diperoleh pemahaman dasar mengenai:
 
+Praktikum 5 ini memberikan pemahaman komprehensif mengenai peran **JavaScript (ECMAScript)** sebagai bahasa pemrograman sisi klien yang mengendalikan perilaku halaman web. Pembelajaran dimulai dengan metode *output* dasar seperti **`document.write()`** untuk menampilkan konten langsung ke HTML dan **`console.log()`** untuk *debugging*. Konsep interaksi pengguna diterapkan melalui fungsi bawaan **`alert()`** dan **`prompt()`**, yang memunculkan *pop-up* dan meminta *input* dari pengguna. Selain itu, praktik ini menekankan pentingnya **fungsi** dan **event handler** seperti **`onload`** dan **`onsubmit`**, yang memungkinkan kode JavaScript bereaksi terhadap peristiwa tertentu pada halaman. Pemahaman berlanjut ke **Dasar Pemrograman**, mencakup operasi aritmatika, struktur kontrol **`if...else`**, dan **`switch`** untuk pengambilan keputusan logis. Akhirnya, pengenalan **HTML DOM (Document Object Model)** dan penerapannya pada **validasi formulir** menunjukkan kemampuan JavaScript dalam **memanipulasi elemen HTML secara dinamis** (misalnya, mengambil nilai *input* dan mencegah pengiriman formulir jika data kosong), serta membuat fitur interaktif seperti perhitungan otomatis menggunakan *checkbox*. Secara keseluruhan, praktik ini menunjukkan bahwa JavaScript adalah fondasi penting untuk menciptakan halaman web yang dinamis, interaktif, dan valid.
