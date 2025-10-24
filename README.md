@@ -1,8 +1,4 @@
-Tentu, berikut adalah file `README.md` yang disajikan dalam bentuk teks penjelasan "Mahasiswa Belajar" (*text-driven explanation*) yang menyertakan kode dan *placeholder* untuk *screenshot*, sesuai dengan struktur Praktikum 5.
 
-Anda hanya perlu menyalin konten ini dan mengganti semua *placeholder* `[NAMA ANDA]`, `[KELAS ANDA]`, dan `https://www.merriam-webster.com/dictionary/repository` serta menambahkan *screenshot* Anda.
-
-````markdown
 # Lab5Web - Laporan Praktikum JavaScript
 #### Nama = [NAMA LENGKAP ANDA]
 #### Kelas = [KELAS ANDA]
